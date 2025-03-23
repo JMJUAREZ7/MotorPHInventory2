@@ -164,7 +164,7 @@ public class Search_Upd_Del {
                         System.out.println("Brand: " + newBrand);
                         System.out.println("Engine: " + searchEngine);
                         System.out.println("Status: " + newStatus);
-                        System.out.print("Confirm update? (yes/no): ");
+                        System.out.print("Confirm update? (1=yes/0=no): ");
                         String confirmUp = scanner.nextLine();
                         if (confirmUp.equalsIgnoreCase("yes") || confirmUp.equals("1")) {
                             inventoryList.set(foundIndex, new Inventory(newDate, newStock, newBrand, searchEngine, newStatus));

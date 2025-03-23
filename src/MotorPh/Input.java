@@ -34,7 +34,7 @@ public class Input {
                     Search_Upd_Del.searchInventory(scanner, inventoryList);
                     break;
                 case 4:
-                    System.out.println("Choose sorting option: 1 for brand, 2 for engine");
+                    System.out.println("Choose sorting option: 1 for brand, 2 for engine, 3 for date");
                     int sortOption = getUserChoice(scanner);
                     Sort.sortInventory(inventoryList, sortOption);
                     break;

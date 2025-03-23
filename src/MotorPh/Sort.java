@@ -10,22 +10,27 @@ public class Sort {
 
     public static void sortInventory(List<Inventory> inventoryList, int option) {
         switch (option) {
-            case 1: //By brand
+            case 1: // By brand (case-insensitive)
                 System.out.println("Sorting the inventory by brand...");
-                Input.currentComparator = Comparator.comparing(Inventory::getBrand);
+                Input.currentComparator = Comparator.comparing(inv -> inv.getBrand().toLowerCase());
                 hybridSort(inventoryList, 0, inventoryList.size() - 1, Input.currentComparator);
                 break;
-            case 2: //By engine
+            case 2: // By engine (case-insensitive)
                 System.out.println("Sorting the inventory by engine...");
-                Input.currentComparator = Comparator.comparing(Inventory::getEngine, String.CASE_INSENSITIVE_ORDER);
+                Input.currentComparator = Comparator.comparing(inv -> inv.getEngine().toLowerCase());
+                hybridSort(inventoryList, 0, inventoryList.size() - 1, Input.currentComparator);
+                break;
+            case 3: // By date
+                System.out.println("Sorting the inventory by date...");
+                Input.currentComparator = Comparator.comparing(Inventory::getDate);
                 hybridSort(inventoryList, 0, inventoryList.size() - 1, Input.currentComparator);
                 break;
             default:
-                System.out.println("Invalid option. Please choose 1 for brand or 2 for engine.");
+                System.out.println("Invalid option. Please choose 1 for brand, 2 for engine, or 3 for date.");
                 return;
         }
 
-        // Display 
+        // Display the sorted inventory
         for (Inventory inv : inventoryList) {
             System.out.println(inv);
         }
